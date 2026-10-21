@@ -1,0 +1,33 @@
+{
+  "name": "mightora-maturity-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:e2e": "playwright test",
+    "verify": "npm run check && npm run build && npm test && npm run test:e2e",
+    "samples": "node --import tsx scripts/samples.ts"
+  },
+  "dependencies": {
+    "docx": "9.6.1",
+    "js-yaml": "4.3.2",
+    "jszip": "3.10.1",
+    "pptxgenjs": "4.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.10.1",
+    "esbuild": "0.25.12",
+    "prettier": "^3.9.10",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "image-size": "2.0.4"
+  }
+}

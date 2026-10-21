@@ -1,0 +1,1457 @@
+{
+  "title": "Power Platform governance and engineering example",
+  "organisation": "Example Council digital services",
+  "description": "An editable example framework. This is not a certified assessment or a reproduction of a proprietary maturity model.",
+  "date": "2026-10-20",
+  "owner": "Platform architecture team",
+  "assessmentVersion": "1.0",
+  "reviewDate": "2027-01-20",
+  "framework": "Power Platform maturity · illustrative example framework",
+  "weighted": false,
+  "levels": [
+    {
+      "value": 1,
+      "name": "Initial",
+      "description": "Activities are informal, inconsistent or reactive.",
+      "guidance": "Demonstrate the practices described at level 1 consistently across the assessed scope.",
+      "evidence": "Record dated examples, artefact references and the extent of adoption.",
+      "color": "#D9705B"
+    },
+    {
+      "value": 2,
+      "name": "Developing",
+      "description": "Some repeatable practices exist but are not consistently applied.",
+      "guidance": "Demonstrate the practices described at level 2 consistently across the assessed scope.",
+      "evidence": "Record dated examples, artefact references and the extent of adoption.",
+      "color": "#E9B36D"
+    },
+    {
+      "value": 3,
+      "name": "Defined",
+      "description": "Standardised processes, policies and responsibilities are established.",
+      "guidance": "Demonstrate the practices described at level 3 consistently across the assessed scope.",
+      "evidence": "Record dated examples, artefact references and the extent of adoption.",
+      "color": "#E9C46A"
+    },
+    {
+      "value": 4,
+      "name": "Managed",
+      "description": "Practices are measured, governed and continuously monitored.",
+      "guidance": "Demonstrate the practices described at level 4 consistently across the assessed scope.",
+      "evidence": "Record dated examples, artefact references and the extent of adoption.",
+      "color": "#8AB8A2"
+    },
+    {
+      "value": 5,
+      "name": "Optimised",
+      "description": "Practices are continuously improved using evidence, automation and feedback.",
+      "guidance": "Demonstrate the practices described at level 5 consistently across the assessed scope.",
+      "evidence": "Record dated examples, artefact references and the extent of adoption.",
+      "color": "#2A9D8F"
+    }
+  ],
+  "domains": [
+    {
+      "id": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+      "name": "Governance and enablement",
+      "description": "Assessment of governance and enablement practices.",
+      "groups": [
+        {
+          "id": "97c570e0-0002-4a41-8b07-99214e738fb6",
+          "name": "Core practices"
+        }
+      ]
+    },
+    {
+      "id": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+      "name": "Architecture and security",
+      "description": "Assessment of architecture and security practices.",
+      "groups": [
+        {
+          "id": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+          "name": "Core practices"
+        }
+      ]
+    },
+    {
+      "id": "c8c88ae1-ce66-461e-af98-90d536907557",
+      "name": "Engineering and delivery",
+      "description": "Assessment of engineering and delivery practices.",
+      "groups": [
+        {
+          "id": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+          "name": "Core practices"
+        }
+      ]
+    },
+    {
+      "id": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+      "name": "Operations and resilience",
+      "description": "Assessment of operations and resilience practices.",
+      "groups": [
+        {
+          "id": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+          "name": "Core practices"
+        }
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "54d91ed0-d9cc-4d54-828e-af113e72dd51",
+      "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+      "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+      "name": "Governance and environment strategy",
+      "description": "Separate workloads by purpose, sensitivity and lifecycle with clear ownership.",
+      "current": 2,
+      "target": 5,
+      "priority": "High",
+      "weight": 2,
+      "evidence": "Illustrative evidence: Review environment inventory, provisioning rules and exception decisions. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for governance and environment strategy, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+      "owner": "Platform lead",
+      "due": "2027-01-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "4b707d24-3d85-4a4c-8525-c76d7952510e",
+          "text": "Review environment inventory, provisioning rules and exception decisions.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "82c6ad98-4f84-45f5-9dde-3e53a3f3826f",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "6bf2dc96-64be-4102-8948-51d21eb8bf59",
+      "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+      "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+      "name": "Citizen developer enablement",
+      "description": "Support makers through training, reusable guidance and a proportionate review process.",
+      "current": 3,
+      "target": 4,
+      "priority": "Medium",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Inspect training records, support channels and escalation routes. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for citizen developer enablement, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Platform lead",
+      "due": "2027-01-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "52060f93-a602-4a3d-8f8f-58af108ebddb",
+          "text": "Inspect training records, support channels and escalation routes.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "cef57c2f-48f2-4067-8cf8-d2f6444dc865",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "bc6a8045-96bc-4990-bdd6-21cde9778467",
+      "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+      "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+      "name": "Data governance",
+      "description": "Classify business data and apply connector policies with reviewed exceptions.",
+      "current": 2,
+      "target": 5,
+      "priority": "High",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Inspect DLP policy scope, data owners and exception reviews. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for data governance, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Platform lead",
+      "due": "2027-01-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "a4d82f1f-c1e5-42ed-a7b1-d39679fedb49",
+          "text": "Inspect DLP policy scope, data owners and exception reviews.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "3e808ea3-eeea-4679-a76f-f198cfa52134",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "d862b9cf-3b5f-4972-93a3-b6c99b275ed8",
+      "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+      "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+      "name": "Dataverse architecture",
+      "description": "Apply deliberate table design, ownership, relationships and capacity planning.",
+      "current": 3,
+      "target": 5,
+      "priority": "High",
+      "weight": 2,
+      "evidence": "Illustrative evidence: Review data models, table ownership and capacity forecasts. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for dataverse architecture, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+      "owner": "Solution architect",
+      "due": "2027-02-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "e15f5351-b914-4cc7-a4e7-08d9ac3a812f",
+          "text": "Review data models, table ownership and capacity forecasts.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "e69b7075-520c-4736-82f9-b95816e4e956",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "8a94fe13-a112-498e-a1b2-f385bef21387",
+      "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+      "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+      "name": "Security and identity",
+      "description": "Apply least privilege, managed identities where supported and regular access reviews.",
+      "current": 4,
+      "target": 4,
+      "priority": "Medium",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Inspect role design, access review decisions and service account ownership. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for security and identity, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Solution architect",
+      "due": "2027-02-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "1b141ce5-9300-4e27-92c2-f3ac0452af69",
+          "text": "Inspect role design, access review decisions and service account ownership.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "74622758-9bff-4a52-adbf-5dff50337764",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "35af7f68-c81c-4323-96c9-e86418212e2e",
+      "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+      "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+      "name": "Integration architecture",
+      "description": "Design integration contracts, error handling and recovery across platform boundaries.",
+      "current": 2,
+      "target": 5,
+      "priority": "High",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Trace a failed integration through monitoring and recovery. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for integration architecture, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Solution architect",
+      "due": "2027-02-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "c3d88346-7d3d-4ec7-a4ed-c066c43235a0",
+          "text": "Trace a failed integration through monitoring and recovery.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "d2d6e78c-e1f0-4442-9b83-addda48ed098",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "476eedc1-5487-422c-89c7-9f26f7203bfd",
+      "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+      "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+      "name": "Application lifecycle management",
+      "description": "Keep solution changes in source control and promote managed artefacts consistently.",
+      "current": 3,
+      "target": 5,
+      "priority": "High",
+      "weight": 2,
+      "evidence": "Illustrative evidence: Trace a production solution to source history and deployment evidence. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for application lifecycle management, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+      "owner": "Engineering lead",
+      "due": "2027-03-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "96d0ee3a-bdbd-48a3-a42d-97361bcc8fc8",
+          "text": "Trace a production solution to source history and deployment evidence.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "e063c205-78ae-4939-9f64-ab2e12c69d09",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "51de1b89-7572-4b9a-ad93-fe0918f6f137",
+      "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+      "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+      "name": "Deployment automation",
+      "description": "Use repeatable pipelines with approvals, validation and rollback arrangements.",
+      "current": 2,
+      "target": 4,
+      "priority": "Medium",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Observe a deployment and a documented recovery exercise. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for deployment automation, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Engineering lead",
+      "due": "2027-03-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "35f66fac-89ca-464b-9970-7adb0cc1bae3",
+          "text": "Observe a deployment and a documented recovery exercise.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "73c991b3-e3af-4ffd-9e1b-536d3f39881c",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "d4e7ecc0-2180-41c1-bf88-f47007d4c7ce",
+      "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+      "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+      "name": "Automated testing",
+      "description": "Cover important journeys and custom code with maintained automated checks.",
+      "current": 2,
+      "target": 5,
+      "priority": "High",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Review test results, failure handling and coverage of key journeys. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for automated testing, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Engineering lead",
+      "due": "2027-03-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "c8c72080-6598-4d29-b7cb-56d2fb82aaf8",
+          "text": "Review test results, failure handling and coverage of key journeys.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "4303ce8d-5c55-47cd-8f33-397970b5bec3",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "f007308f-0fd4-4bb8-bf58-249b1efdeb9b",
+      "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+      "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+      "name": "Monitoring and observability",
+      "description": "Measure service health, failures and business impact with named responders.",
+      "current": 3,
+      "target": 5,
+      "priority": "High",
+      "weight": 2,
+      "evidence": "Illustrative evidence: Inspect actionable alerts, dashboards and incident records. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for monitoring and observability, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+      "owner": "Service owner",
+      "due": "2027-04-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "747040da-bda5-4833-be39-0b45393b5110",
+          "text": "Inspect actionable alerts, dashboards and incident records.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "11e13998-2bcd-4dd7-ba2e-cf1a754fca9c",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "f4b31fde-9bcd-4e60-ab8b-c3b55c6b1d23",
+      "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+      "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+      "name": "Recovery and continuity",
+      "description": "Demonstrate recovery of platform data and critical apps against agreed objectives.",
+      "current": 2,
+      "target": 4,
+      "priority": "Medium",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Review a restore exercise against RTO and RPO. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for recovery and continuity, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Service owner",
+      "due": "2027-04-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "0a23b809-03f9-44a7-9e8e-7987f928dc03",
+          "text": "Review a restore exercise against RTO and RPO.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "2dd62053-8fb8-4757-9a89-2cf36285d6b6",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "e8b6d386-a889-4674-811b-b3ac8558cd6c",
+      "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+      "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+      "name": "Capacity and licensing",
+      "description": "Forecast capacity and licence needs with evidence of regular review.",
+      "current": 3,
+      "target": 5,
+      "priority": "High",
+      "weight": 1,
+      "evidence": "Illustrative evidence: Compare usage trends, licence allocations and forecasts. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+      "recommendations": "Agree a consistent approach for capacity and licensing, assign ownership, and review adoption at the next quarterly assessment.",
+      "risks": "",
+      "owner": "Service owner",
+      "due": "2027-04-20",
+      "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+      "criteria": [
+        {
+          "id": "4c7d7034-cc26-4e89-9975-8924198c4a6d",
+          "text": "Compare usage trends, licence allocations and forecasts.",
+          "met": true,
+          "evidence": "Illustrative review notes, September 2026."
+        },
+        {
+          "id": "844b27fc-97e2-4a54-8351-460952b2c5c1",
+          "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+          "met": false,
+          "evidence": ""
+        }
+      ]
+    }
+  ],
+  "theme": {
+    "preset": "mightora",
+    "current": "#1769AA",
+    "target": "#B44D2E",
+    "previous": "#7654A3",
+    "font": "Arial",
+    "labelSize": 13
+  },
+  "schemaVersion": 2,
+  "id": "ec11cbfe-3a9c-4e63-b37e-429b7656e531",
+  "snapshots": [
+    {
+      "id": "cb151c16-cb17-4252-832a-e12b74bb3e9a",
+      "label": "April baseline",
+      "date": "2026-04-20",
+      "assessment": {
+        "title": "Power Platform governance and engineering example",
+        "organisation": "Example Council digital services",
+        "description": "An editable example framework. This is not a certified assessment or a reproduction of a proprietary maturity model.",
+        "date": "2026-04-20",
+        "owner": "Platform architecture team",
+        "assessmentVersion": "1.0",
+        "reviewDate": "2027-01-20",
+        "framework": "Power Platform maturity · illustrative example framework",
+        "weighted": false,
+        "levels": [
+          {
+            "value": 1,
+            "name": "Initial",
+            "description": "Activities are informal, inconsistent or reactive.",
+            "guidance": "Demonstrate the practices described at level 1 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#D9705B"
+          },
+          {
+            "value": 2,
+            "name": "Developing",
+            "description": "Some repeatable practices exist but are not consistently applied.",
+            "guidance": "Demonstrate the practices described at level 2 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#E9B36D"
+          },
+          {
+            "value": 3,
+            "name": "Defined",
+            "description": "Standardised processes, policies and responsibilities are established.",
+            "guidance": "Demonstrate the practices described at level 3 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#E9C46A"
+          },
+          {
+            "value": 4,
+            "name": "Managed",
+            "description": "Practices are measured, governed and continuously monitored.",
+            "guidance": "Demonstrate the practices described at level 4 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#8AB8A2"
+          },
+          {
+            "value": 5,
+            "name": "Optimised",
+            "description": "Practices are continuously improved using evidence, automation and feedback.",
+            "guidance": "Demonstrate the practices described at level 5 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#2A9D8F"
+          }
+        ],
+        "domains": [
+          {
+            "id": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "name": "Governance and enablement",
+            "description": "Assessment of governance and enablement practices.",
+            "groups": [
+              {
+                "id": "97c570e0-0002-4a41-8b07-99214e738fb6",
+                "name": "Core practices"
+              }
+            ]
+          },
+          {
+            "id": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "name": "Architecture and security",
+            "description": "Assessment of architecture and security practices.",
+            "groups": [
+              {
+                "id": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+                "name": "Core practices"
+              }
+            ]
+          },
+          {
+            "id": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "name": "Engineering and delivery",
+            "description": "Assessment of engineering and delivery practices.",
+            "groups": [
+              {
+                "id": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+                "name": "Core practices"
+              }
+            ]
+          },
+          {
+            "id": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "name": "Operations and resilience",
+            "description": "Assessment of operations and resilience practices.",
+            "groups": [
+              {
+                "id": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+                "name": "Core practices"
+              }
+            ]
+          }
+        ],
+        "capabilities": [
+          {
+            "id": "54d91ed0-d9cc-4d54-828e-af113e72dd51",
+            "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+            "name": "Governance and environment strategy",
+            "description": "Separate workloads by purpose, sensitivity and lifecycle with clear ownership.",
+            "current": 1,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Review environment inventory, provisioning rules and exception decisions. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for governance and environment strategy, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Platform lead",
+            "due": "2027-01-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "4b707d24-3d85-4a4c-8525-c76d7952510e",
+                "text": "Review environment inventory, provisioning rules and exception decisions.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "82c6ad98-4f84-45f5-9dde-3e53a3f3826f",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "6bf2dc96-64be-4102-8948-51d21eb8bf59",
+            "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+            "name": "Citizen developer enablement",
+            "description": "Support makers through training, reusable guidance and a proportionate review process.",
+            "current": 2,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Inspect training records, support channels and escalation routes. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for citizen developer enablement, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Platform lead",
+            "due": "2027-01-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "52060f93-a602-4a3d-8f8f-58af108ebddb",
+                "text": "Inspect training records, support channels and escalation routes.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "cef57c2f-48f2-4067-8cf8-d2f6444dc865",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "bc6a8045-96bc-4990-bdd6-21cde9778467",
+            "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+            "name": "Data governance",
+            "description": "Classify business data and apply connector policies with reviewed exceptions.",
+            "current": 1,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Inspect DLP policy scope, data owners and exception reviews. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for data governance, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Platform lead",
+            "due": "2027-01-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "a4d82f1f-c1e5-42ed-a7b1-d39679fedb49",
+                "text": "Inspect DLP policy scope, data owners and exception reviews.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "3e808ea3-eeea-4679-a76f-f198cfa52134",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "d862b9cf-3b5f-4972-93a3-b6c99b275ed8",
+            "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+            "name": "Dataverse architecture",
+            "description": "Apply deliberate table design, ownership, relationships and capacity planning.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Review data models, table ownership and capacity forecasts. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for dataverse architecture, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Solution architect",
+            "due": "2027-02-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "e15f5351-b914-4cc7-a4e7-08d9ac3a812f",
+                "text": "Review data models, table ownership and capacity forecasts.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "e69b7075-520c-4736-82f9-b95816e4e956",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "8a94fe13-a112-498e-a1b2-f385bef21387",
+            "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+            "name": "Security and identity",
+            "description": "Apply least privilege, managed identities where supported and regular access reviews.",
+            "current": 3,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Inspect role design, access review decisions and service account ownership. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for security and identity, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Solution architect",
+            "due": "2027-02-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "1b141ce5-9300-4e27-92c2-f3ac0452af69",
+                "text": "Inspect role design, access review decisions and service account ownership.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "74622758-9bff-4a52-adbf-5dff50337764",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "35af7f68-c81c-4323-96c9-e86418212e2e",
+            "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+            "name": "Integration architecture",
+            "description": "Design integration contracts, error handling and recovery across platform boundaries.",
+            "current": 1,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Trace a failed integration through monitoring and recovery. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for integration architecture, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Solution architect",
+            "due": "2027-02-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "c3d88346-7d3d-4ec7-a4ed-c066c43235a0",
+                "text": "Trace a failed integration through monitoring and recovery.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "d2d6e78c-e1f0-4442-9b83-addda48ed098",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "476eedc1-5487-422c-89c7-9f26f7203bfd",
+            "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+            "name": "Application lifecycle management",
+            "description": "Keep solution changes in source control and promote managed artefacts consistently.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Trace a production solution to source history and deployment evidence. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for application lifecycle management, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Engineering lead",
+            "due": "2027-03-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "96d0ee3a-bdbd-48a3-a42d-97361bcc8fc8",
+                "text": "Trace a production solution to source history and deployment evidence.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "e063c205-78ae-4939-9f64-ab2e12c69d09",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "51de1b89-7572-4b9a-ad93-fe0918f6f137",
+            "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+            "name": "Deployment automation",
+            "description": "Use repeatable pipelines with approvals, validation and rollback arrangements.",
+            "current": 1,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Observe a deployment and a documented recovery exercise. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for deployment automation, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Engineering lead",
+            "due": "2027-03-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "35f66fac-89ca-464b-9970-7adb0cc1bae3",
+                "text": "Observe a deployment and a documented recovery exercise.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "73c991b3-e3af-4ffd-9e1b-536d3f39881c",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "d4e7ecc0-2180-41c1-bf88-f47007d4c7ce",
+            "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+            "name": "Automated testing",
+            "description": "Cover important journeys and custom code with maintained automated checks.",
+            "current": 1,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Review test results, failure handling and coverage of key journeys. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for automated testing, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Engineering lead",
+            "due": "2027-03-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "c8c72080-6598-4d29-b7cb-56d2fb82aaf8",
+                "text": "Review test results, failure handling and coverage of key journeys.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "4303ce8d-5c55-47cd-8f33-397970b5bec3",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "f007308f-0fd4-4bb8-bf58-249b1efdeb9b",
+            "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+            "name": "Monitoring and observability",
+            "description": "Measure service health, failures and business impact with named responders.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Inspect actionable alerts, dashboards and incident records. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for monitoring and observability, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Service owner",
+            "due": "2027-04-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "747040da-bda5-4833-be39-0b45393b5110",
+                "text": "Inspect actionable alerts, dashboards and incident records.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "11e13998-2bcd-4dd7-ba2e-cf1a754fca9c",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "f4b31fde-9bcd-4e60-ab8b-c3b55c6b1d23",
+            "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+            "name": "Recovery and continuity",
+            "description": "Demonstrate recovery of platform data and critical apps against agreed objectives.",
+            "current": 1,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Review a restore exercise against RTO and RPO. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for recovery and continuity, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Service owner",
+            "due": "2027-04-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "0a23b809-03f9-44a7-9e8e-7987f928dc03",
+                "text": "Review a restore exercise against RTO and RPO.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "2dd62053-8fb8-4757-9a89-2cf36285d6b6",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "e8b6d386-a889-4674-811b-b3ac8558cd6c",
+            "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+            "name": "Capacity and licensing",
+            "description": "Forecast capacity and licence needs with evidence of regular review.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Compare usage trends, licence allocations and forecasts. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for capacity and licensing, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Service owner",
+            "due": "2027-04-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "4c7d7034-cc26-4e89-9975-8924198c4a6d",
+                "text": "Compare usage trends, licence allocations and forecasts.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "844b27fc-97e2-4a54-8351-460952b2c5c1",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "theme": {
+          "preset": "mightora",
+          "current": "#1769AA",
+          "target": "#B44D2E",
+          "previous": "#7654A3",
+          "font": "Arial",
+          "labelSize": 13
+        }
+      }
+    },
+    {
+      "id": "1f83251c-0215-4eb1-9740-23063d5e8c87",
+      "label": "July review",
+      "date": "2026-07-20",
+      "assessment": {
+        "title": "Power Platform governance and engineering example",
+        "organisation": "Example Council digital services",
+        "description": "An editable example framework. This is not a certified assessment or a reproduction of a proprietary maturity model.",
+        "date": "2026-07-20",
+        "owner": "Platform architecture team",
+        "assessmentVersion": "1.0",
+        "reviewDate": "2027-01-20",
+        "framework": "Power Platform maturity · illustrative example framework",
+        "weighted": false,
+        "levels": [
+          {
+            "value": 1,
+            "name": "Initial",
+            "description": "Activities are informal, inconsistent or reactive.",
+            "guidance": "Demonstrate the practices described at level 1 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#D9705B"
+          },
+          {
+            "value": 2,
+            "name": "Developing",
+            "description": "Some repeatable practices exist but are not consistently applied.",
+            "guidance": "Demonstrate the practices described at level 2 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#E9B36D"
+          },
+          {
+            "value": 3,
+            "name": "Defined",
+            "description": "Standardised processes, policies and responsibilities are established.",
+            "guidance": "Demonstrate the practices described at level 3 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#E9C46A"
+          },
+          {
+            "value": 4,
+            "name": "Managed",
+            "description": "Practices are measured, governed and continuously monitored.",
+            "guidance": "Demonstrate the practices described at level 4 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#8AB8A2"
+          },
+          {
+            "value": 5,
+            "name": "Optimised",
+            "description": "Practices are continuously improved using evidence, automation and feedback.",
+            "guidance": "Demonstrate the practices described at level 5 consistently across the assessed scope.",
+            "evidence": "Record dated examples, artefact references and the extent of adoption.",
+            "color": "#2A9D8F"
+          }
+        ],
+        "domains": [
+          {
+            "id": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "name": "Governance and enablement",
+            "description": "Assessment of governance and enablement practices.",
+            "groups": [
+              {
+                "id": "97c570e0-0002-4a41-8b07-99214e738fb6",
+                "name": "Core practices"
+              }
+            ]
+          },
+          {
+            "id": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "name": "Architecture and security",
+            "description": "Assessment of architecture and security practices.",
+            "groups": [
+              {
+                "id": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+                "name": "Core practices"
+              }
+            ]
+          },
+          {
+            "id": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "name": "Engineering and delivery",
+            "description": "Assessment of engineering and delivery practices.",
+            "groups": [
+              {
+                "id": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+                "name": "Core practices"
+              }
+            ]
+          },
+          {
+            "id": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "name": "Operations and resilience",
+            "description": "Assessment of operations and resilience practices.",
+            "groups": [
+              {
+                "id": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+                "name": "Core practices"
+              }
+            ]
+          }
+        ],
+        "capabilities": [
+          {
+            "id": "54d91ed0-d9cc-4d54-828e-af113e72dd51",
+            "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+            "name": "Governance and environment strategy",
+            "description": "Separate workloads by purpose, sensitivity and lifecycle with clear ownership.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Review environment inventory, provisioning rules and exception decisions. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for governance and environment strategy, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Platform lead",
+            "due": "2027-01-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "4b707d24-3d85-4a4c-8525-c76d7952510e",
+                "text": "Review environment inventory, provisioning rules and exception decisions.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "82c6ad98-4f84-45f5-9dde-3e53a3f3826f",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "6bf2dc96-64be-4102-8948-51d21eb8bf59",
+            "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+            "name": "Citizen developer enablement",
+            "description": "Support makers through training, reusable guidance and a proportionate review process.",
+            "current": 3,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Inspect training records, support channels and escalation routes. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for citizen developer enablement, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Platform lead",
+            "due": "2027-01-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "52060f93-a602-4a3d-8f8f-58af108ebddb",
+                "text": "Inspect training records, support channels and escalation routes.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "cef57c2f-48f2-4067-8cf8-d2f6444dc865",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "bc6a8045-96bc-4990-bdd6-21cde9778467",
+            "domainId": "fc0fbdd0-0817-4d96-bc35-5c8d1883b961",
+            "groupId": "97c570e0-0002-4a41-8b07-99214e738fb6",
+            "name": "Data governance",
+            "description": "Classify business data and apply connector policies with reviewed exceptions.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Inspect DLP policy scope, data owners and exception reviews. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for data governance, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Platform lead",
+            "due": "2027-01-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "a4d82f1f-c1e5-42ed-a7b1-d39679fedb49",
+                "text": "Inspect DLP policy scope, data owners and exception reviews.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "3e808ea3-eeea-4679-a76f-f198cfa52134",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "d862b9cf-3b5f-4972-93a3-b6c99b275ed8",
+            "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+            "name": "Dataverse architecture",
+            "description": "Apply deliberate table design, ownership, relationships and capacity planning.",
+            "current": 3,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Review data models, table ownership and capacity forecasts. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for dataverse architecture, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Solution architect",
+            "due": "2027-02-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "e15f5351-b914-4cc7-a4e7-08d9ac3a812f",
+                "text": "Review data models, table ownership and capacity forecasts.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "e69b7075-520c-4736-82f9-b95816e4e956",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "8a94fe13-a112-498e-a1b2-f385bef21387",
+            "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+            "name": "Security and identity",
+            "description": "Apply least privilege, managed identities where supported and regular access reviews.",
+            "current": 4,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Inspect role design, access review decisions and service account ownership. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for security and identity, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Solution architect",
+            "due": "2027-02-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "1b141ce5-9300-4e27-92c2-f3ac0452af69",
+                "text": "Inspect role design, access review decisions and service account ownership.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "74622758-9bff-4a52-adbf-5dff50337764",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "35af7f68-c81c-4323-96c9-e86418212e2e",
+            "domainId": "177179c6-1639-4f7d-8889-ff41d7b8b70e",
+            "groupId": "8fc0d880-4cb2-4c72-a585-fa25738b7edd",
+            "name": "Integration architecture",
+            "description": "Design integration contracts, error handling and recovery across platform boundaries.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Trace a failed integration through monitoring and recovery. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for integration architecture, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Solution architect",
+            "due": "2027-02-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "c3d88346-7d3d-4ec7-a4ed-c066c43235a0",
+                "text": "Trace a failed integration through monitoring and recovery.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "d2d6e78c-e1f0-4442-9b83-addda48ed098",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "476eedc1-5487-422c-89c7-9f26f7203bfd",
+            "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+            "name": "Application lifecycle management",
+            "description": "Keep solution changes in source control and promote managed artefacts consistently.",
+            "current": 3,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Trace a production solution to source history and deployment evidence. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for application lifecycle management, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Engineering lead",
+            "due": "2027-03-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "96d0ee3a-bdbd-48a3-a42d-97361bcc8fc8",
+                "text": "Trace a production solution to source history and deployment evidence.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "e063c205-78ae-4939-9f64-ab2e12c69d09",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "51de1b89-7572-4b9a-ad93-fe0918f6f137",
+            "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+            "name": "Deployment automation",
+            "description": "Use repeatable pipelines with approvals, validation and rollback arrangements.",
+            "current": 2,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Observe a deployment and a documented recovery exercise. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for deployment automation, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Engineering lead",
+            "due": "2027-03-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "35f66fac-89ca-464b-9970-7adb0cc1bae3",
+                "text": "Observe a deployment and a documented recovery exercise.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "73c991b3-e3af-4ffd-9e1b-536d3f39881c",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "d4e7ecc0-2180-41c1-bf88-f47007d4c7ce",
+            "domainId": "c8c88ae1-ce66-461e-af98-90d536907557",
+            "groupId": "e57a59a7-62a4-4212-8fba-e1cd0f2222c5",
+            "name": "Automated testing",
+            "description": "Cover important journeys and custom code with maintained automated checks.",
+            "current": 2,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Review test results, failure handling and coverage of key journeys. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for automated testing, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Engineering lead",
+            "due": "2027-03-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "c8c72080-6598-4d29-b7cb-56d2fb82aaf8",
+                "text": "Review test results, failure handling and coverage of key journeys.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "4303ce8d-5c55-47cd-8f33-397970b5bec3",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "f007308f-0fd4-4bb8-bf58-249b1efdeb9b",
+            "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+            "name": "Monitoring and observability",
+            "description": "Measure service health, failures and business impact with named responders.",
+            "current": 3,
+            "target": 5,
+            "priority": "High",
+            "weight": 2,
+            "evidence": "Illustrative evidence: Inspect actionable alerts, dashboards and incident records. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for monitoring and observability, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "Inconsistent adoption could leave critical services without a clear accountable owner.",
+            "owner": "Service owner",
+            "due": "2027-04-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "747040da-bda5-4833-be39-0b45393b5110",
+                "text": "Inspect actionable alerts, dashboards and incident records.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "11e13998-2bcd-4dd7-ba2e-cf1a754fca9c",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "f4b31fde-9bcd-4e60-ab8b-c3b55c6b1d23",
+            "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+            "name": "Recovery and continuity",
+            "description": "Demonstrate recovery of platform data and critical apps against agreed objectives.",
+            "current": 2,
+            "target": 4,
+            "priority": "Medium",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Review a restore exercise against RTO and RPO. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for recovery and continuity, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Service owner",
+            "due": "2027-04-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "0a23b809-03f9-44a7-9e8e-7987f928dc03",
+                "text": "Review a restore exercise against RTO and RPO.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "2dd62053-8fb8-4757-9a89-2cf36285d6b6",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          },
+          {
+            "id": "e8b6d386-a889-4674-811b-b3ac8558cd6c",
+            "domainId": "e02ae63b-4157-4fa7-b3d9-fc9da6436367",
+            "groupId": "b07fd4e6-5bde-4eb8-a006-a18b846933f1",
+            "name": "Capacity and licensing",
+            "description": "Forecast capacity and licence needs with evidence of regular review.",
+            "current": 3,
+            "target": 5,
+            "priority": "High",
+            "weight": 1,
+            "evidence": "Illustrative evidence: Compare usage trends, licence allocations and forecasts. A sample review in September found the practice in two of four teams, with inconsistent follow-up.",
+            "recommendations": "Agree a consistent approach for capacity and licensing, assign ownership, and review adoption at the next quarterly assessment.",
+            "risks": "",
+            "owner": "Service owner",
+            "due": "2027-04-20",
+            "notes": "Fictional data supplied to demonstrate the tool. Replace with your own assessment.",
+            "criteria": [
+              {
+                "id": "4c7d7034-cc26-4e89-9975-8924198c4a6d",
+                "text": "Compare usage trends, licence allocations and forecasts.",
+                "met": true,
+                "evidence": "Illustrative review notes, September 2026."
+              },
+              {
+                "id": "844b27fc-97e2-4a54-8351-460952b2c5c1",
+                "text": "Confirm consistent adoption across the agreed assessment scope, supported by dated evidence.",
+                "met": false,
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "theme": {
+          "preset": "mightora",
+          "current": "#1769AA",
+          "target": "#B44D2E",
+          "previous": "#7654A3",
+          "font": "Arial",
+          "labelSize": 13
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+name: Mightora browser assessment analysis
+paths:
+  - src
+  - scripts
+paths-ignore:
+  - dist
+  - node_modules
+  - public/shared
+queries:
+  - uses: security-extended

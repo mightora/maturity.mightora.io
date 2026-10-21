@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102a43" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="Assess capability maturity, compare current and target scores, and export editable Word and PowerPoint reports. Free, open source and local to your browser."
+    />
+    <title>Mightora Maturity Assessment</title>
+    <!-- CSP -->
+    <!-- STYLES -->
+    <!-- SHARED -->
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to assessment</a>
+    <!-- BRAND_HEADER -->
+    <nav class="quick-jump-nav" aria-label="Section shortcuts">
+      <a href="#workspace">Assessment</a><a href="#visuals">Visualise</a
+      ><a href="#framework">Framework</a><a href="#history">History</a
+      ><a href="#exports">Export & share</a><a href="#guide">Guide</a
+      ><a href="#privacy">Privacy</a>
+    </nav>
+    <main class="shell">
+      <section class="hero" id="overview">
+        <div>
+          <p class="eyebrow">MIGHTORA / STRATEGY & GOVERNANCE</p>
+          <h1>Know where you are.<br /><span>Plan what comes next.</span></h1>
+          <p class="lead">
+            Map capability maturity, make sense of the gaps, and turn evidence
+            into a clear improvement plan.
+          </p>
+          <p class="privacy-pill">
+            Your data stays in your browser. No account required.
+          </p>
+        </div>
+        <div class="hero-graphic" aria-hidden="true">
+          <svg viewBox="0 0 260 260">
+            <g fill="none" stroke="#BCCCDC">
+              <polygon points="130,20 235,100 195,225 65,225 25,100" />
+              <polygon points="130,50 205,109 177,198 83,198 55,109" />
+              <polygon points="130,80 176,118 159,170 101,170 84,118" />
+            </g>
+            <polygon
+              points="130,35 214,106 175,198 79,206 48,107"
+              fill="#B44D2E11"
+              stroke="#B44D2E"
+              stroke-dasharray="6 4"
+              stroke-width="2"
+            />
+            <polygon
+              points="130,82 184,117 160,175 95,173 72,113"
+              fill="#1769AA22"
+              stroke="#1769AA"
+              stroke-width="3"
+            />
+            <circle cx="130" cy="82" r="5" fill="#1769AA" />
+          </svg>
+        </div>
+      </section>
+      <div id="sharedBanner" class="notice" hidden></div>
+      <section id="workspace" aria-labelledby="workspaceTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / ASSESS</p>
+            <h2 id="workspaceTitle">Your assessment workspace</h2>
+          </div>
+          <div class="toolbar-group" data-edit>
+            <button id="newProject" class="btn btn-primary">
+              New assessment</button
+            ><button id="importButton" class="btn">Import project</button>
+          </div>
+        </div>
+        <div class="workspace-bar" data-edit>
+          <label
+            >Assessment<select
+              id="projectPicker"
+              aria-label="Select assessment"
+            ></select></label
+          ><button id="duplicateProject" class="btn">Duplicate</button
+          ><button id="deleteProject" class="btn danger">
+            Delete assessment</button
+          ><button id="manualSave" class="btn">Save now</button
+          ><span id="saveState" role="status" aria-live="polite"
+            >Opening local workspace…</span
+          >
+        </div>
+        <div class="panel metadata">
+          <label
+            >Assessment title<input
+              id="projectTitle"
+              maxlength="200"
+              required /></label
+          ><label
+            >Organisation or project<input id="organisation" maxlength="200"
+          /></label>
+          <details>
+            <summary>Assessment details and ownership</summary>
+            <div class="form-grid">
+              <label
+                >Description<textarea
+                  id="description"
+                  rows="3"
+                  maxlength="10000"
+                ></textarea></label
+              ><label>Owner<input id="assessmentOwner" maxlength="160" /></label
+              ><label
+                >Assessment date<input
+                  id="assessmentDate"
+                  type="date"
+                  required /></label
+              ><label
+                >Version<input
+                  id="assessmentVersion"
+                  maxlength="60"
+                  required /></label
+              ><label>Review date<input id="reviewDate" type="date" /></label
+              ><label
+                >Framework name<input id="frameworkName" maxlength="200"
+              /></label>
+            </div>
+          </details>
+        </div>
+        <div
+          class="metric-grid"
+          id="metrics"
+          aria-label="Assessment summary"
+        ></div>
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <h3>Capabilities and evidence</h3>
+              <p>
+                Score against the level definitions. Use Details to record
+                evidence and recommendations.
+              </p>
+            </div>
+            <div class="toolbar-group" data-edit>
+              <button
+                id="undo"
+                class="btn"
+                aria-label="Undo last assessment edit"
+              >
+                ↶ Undo</button
+              ><button id="redo" class="btn" aria-label="Redo assessment edit">
+                ↷ Redo</button
+              ><button id="addCapability" class="btn btn-primary">
+                + Capability
+              </button>
+            </div>
+          </div>
+          <div class="filter-bar">
+            <label
+              >Search capabilities<input
+                id="search"
+                type="search"
+                placeholder="Name, owner, evidence…" /></label
+            ><label
+              >Domain<select id="domainFilter">
+                <option value="">All domains</option>
+              </select></label
+            ><label
+              >Priority<select id="priorityFilter">
+                <option value="">All priorities</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select></label
+            ><button id="resetFilters" class="btn">Reset filters</button
+            ><label
+              >Editor mode<select id="editorMode">
+                <option value="visual">Visual table</option>
+                <option value="json">Complete JSON</option>
+                <option value="csv">Capability CSV</option>
+              </select></label
+            >
+          </div>
+          <div id="visualEditor">
+            <div class="bulk-bar" data-edit>
+              <span id="selectedCount">0 selected</span
+              ><label
+                >Bulk field<select id="bulkField">
+                  <option value="priority">Priority</option>
+                  <option value="owner">Owner</option>
+                  <option value="target">
+                    Target score (1–10, NA or blank)
+                  </option>
+                  <option value="domainId">Domain ID</option>
+                </select></label
+              ><label>Value<input id="bulkValue" maxlength="160" /></label
+              ><button id="applyBulk" class="btn">Apply to selected</button>
+            </div>
+            <p id="editorStatus" class="status-text" role="status"></p>
+            <div
+              class="table-wrap"
+              role="region"
+              tabindex="0"
+              aria-label="Scrollable capability editor"
+            >
+              <table class="editor-table">
+                <caption class="sr-only">
+                  Editable current and target capability scores
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <input
+                        id="selectAll"
+                        type="checkbox"
+                        aria-label="Select visible capabilities"
+                        data-edit
+                      />
+                    </th>
+                    <th scope="col">Capability / domain</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Target</th>
+                    <th scope="col">Gap</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="capabilityRows"></tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <button id="rowsPrev" class="btn">Previous rows</button
+              ><span id="rowsPage"></span
+              ><button id="rowsNext" class="btn">Next rows</button>
+            </div>
+          </div>
+          <div id="structuredEditor" hidden>
+            <p id="structuredHelp"></p>
+            <label
+              >Assessment source<textarea
+                id="structuredSource"
+                class="code-editor"
+                rows="20"
+                spellcheck="false"
+              ></textarea></label
+            ><button id="applySource" class="btn btn-primary" data-edit>
+              Validate and apply
+            </button>
+            <p id="sourceErrors" role="alert"></p>
+          </div>
+        </div>
+      </section>
+      <section id="visuals" class="panel" aria-labelledby="visualTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / EXPLORE</p>
+            <h2 id="visualTitle">One assessment. Several perspectives.</h2>
+            <p>
+              Visualisations use the same search, domain and priority filters as
+              the editor.
+            </p>
+          </div>
+          <button id="shareButton" class="btn">Share view</button>
+        </div>
+        <div
+          id="viewTabs"
+          class="view-tabs"
+          role="group"
+          aria-label="Visualisation"
+        >
+          <button data-view="executive" aria-pressed="true">
+            Executive overview</button
+          ><button data-view="radar" aria-pressed="false">Radar</button
+          ><button data-view="heatmap" aria-pressed="false">Heatmap</button
+          ><button data-view="comparison" aria-pressed="false">
+            Current vs target</button
+          ><button data-view="gap" aria-pressed="false">Gap analysis</button
+          ><button data-view="history" aria-pressed="false">History</button>
+        </div>
+        <div class="filter-bar chart-controls">
+          <label
+            >Heatmap measure<select id="measure">
+              <option value="current">Current</option>
+              <option value="target">Target</option>
+              <option value="gap">Gap</option>
+            </select></label
+          ><label
+            ><input id="showCurrent" type="checkbox" checked /> Current
+            line</label
+          ><label
+            ><input id="showTarget" type="checkbox" checked /> Target dashed
+            line</label
+          ><label
+            ><input id="showPrevious" type="checkbox" /> Previous dotted
+            line</label
+          ><label
+            >Previous snapshot<select id="previousSnapshot"></select></label
+          ><label
+            >Label size<input
+              id="labelSize"
+              type="range"
+              min="9"
+              max="24"
+              value="13" /></label
+          ><label
+            >Zoom<select id="chartZoom">
+              <option value="100">100%</option>
+              <option value="150">150%</option>
+              <option value="200">200%</option>
+            </select></label
+          ><label
+            >Gap sort<select id="gapSort">
+              <option value="priority">Business priority</option>
+              <option value="gap">Numeric gap</option>
+              <option value="weight">Capability weight</option>
+              <option value="due">Target date</option>
+            </select></label
+          ><label>History scope<select id="historyScope"></select></label>
+        </div>
+        <div id="executiveSummary" class="notice"></div>
+        <div
+          id="chartArea"
+          class="chart-area"
+          role="region"
+          tabindex="0"
+          aria-label="Scrollable assessment chart"
+        ></div>
+        <p id="chartNote" class="note"></p>
+        <div class="pagination">
+          <button id="chartPrev" class="btn">Previous chart page</button
+          ><span id="chartPage"></span
+          ><button id="chartNext" class="btn">Next chart page</button
+          ><button data-export="svg" class="btn">Save SVG</button
+          ><button data-export="png" class="btn">Save PNG</button>
+        </div>
+        <details class="score-data">
+          <summary>Accessible chart data</summary>
+          <div
+            class="table-wrap"
+            role="region"
+            tabindex="0"
+            aria-label="Complete filtered score data"
+          >
+            <table>
+              <caption>
+                All capabilities matching the filters
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Domain</th>
+                  <th scope="col">Capability</th>
+                  <th scope="col">Current</th>
+                  <th scope="col">Target</th>
+                  <th scope="col">Gap</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Target date</th>
+                </tr>
+              </thead>
+              <tbody id="scoreData"></tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+      <section id="framework" class="panel" data-edit>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / CONFIGURE</p>
+            <h2>Make the framework your own</h2>
+            <p>
+              Stable identifiers preserve history when you rename or reorder
+              capabilities.
+            </p>
+          </div>
+        </div>
+        <details>
+          <summary>Domains and capability groups</summary>
+          <div id="domainEditor"></div>
+          <button id="addDomain" class="btn">+ Domain</button>
+        </details>
+        <details>
+          <summary>Maturity levels and scoring</summary>
+          <label class="check"
+            ><input id="weighted" type="checkbox" /> Use capability weights in
+            averages</label
+          >
+          <div id="levelSettings"></div>
+          <button id="addLevel" class="btn">+ Maturity level</button>
+          <p id="methodology" class="note"></p>
+        </details>
+        <details>
+          <summary>Visual theme</summary>
+          <div class="form-grid">
+            <label
+              >Theme<select id="appTheme">
+                <option value="mightora">Mightora</option>
+                <option value="ocean">Ocean</option>
+                <option value="forest">Forest</option>
+                <option value="custom">Custom</option>
+              </select></label
+            ><label
+              >Current colour<input id="currentColor" type="color" /></label
+            ><label>Target colour<input id="targetColor" type="color" /></label
+            ><label
+              >Previous colour<input id="previousColor" type="color"
+            /></label>
+          </div>
+        </details>
+      </section>
+      <section id="history" class="panel" data-edit>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 / TRACK CHANGE</p>
+            <h2>Snapshots that preserve the past</h2>
+            <p>
+              Capture scores, evidence, structure and level definitions
+              independently of future edits.
+            </p>
+          </div>
+          <button id="takeSnapshot" class="btn btn-primary">
+            Capture snapshot
+          </button>
+        </div>
+        <div id="snapshotList"></div>
+      </section>
+      <section id="exports" class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / REPORT & SHARE</p>
+            <h2>Take your assessment with you</h2>
+            <p>
+              Reports include the complete assessment, regardless of display
+              filters.
+            </p>
+          </div>
+        </div>
+        <div class="export-grid">
+          <button data-export="pptx" class="export-card">
+            <strong>PowerPoint .pptx</strong
+            ><span
+              >Native editable charts with embedded Excel data, text and
+              tables.</span
+            ></button
+          ><button data-export="docx" class="export-card">
+            <strong>Word .docx</strong
+            ><span
+              >Editable report with native comparison tables, evidence and
+              roadmap.</span
+            ></button
+          ><button data-export="json" class="export-card">
+            <strong>Complete JSON</strong
+            ><span
+              >Portable backup with framework, criteria and every
+              snapshot.</span
+            ></button
+          ><button data-export="csv" class="export-card">
+            <strong>Capability CSV</strong
+            ><span
+              >Tabular editing. Framework definitions and snapshots are
+              excluded.</span
+            ></button
+          ><button id="printButton" class="export-card">
+            <strong>Print / save PDF</strong
+            ><span
+              >Print the current visualisation and complete filtered score
+              table.</span
+            ></button
+          ><button id="shareExport" class="export-card">
+            <strong>Share & embed</strong
+            ><span
+              >A snapshot encoded in a URL fragment. Read-only by default.</span
+            >
+          </button>
+        </div>
+        <details open>
+          <summary>Presentation design</summary>
+          <div class="form-grid">
+            <label
+              >Report theme<select id="reportTheme">
+                <option value="mightora">Mightora</option>
+                <option value="plain">Plain professional</option>
+                <option value="ocean">Ocean</option>
+                <option value="forest">Forest</option>
+                <option value="custom">Custom</option>
+              </select></label
+            ><label
+              >Font family<input
+                id="reportFont"
+                value="Arial"
+                maxlength="72"
+                list="fonts" /></label
+            ><datalist id="fonts">
+              <option>Arial</option>
+              <option>Aptos</option>
+              <option>Calibri</option>
+              <option>Georgia</option></datalist
+            ><label
+              >Slide aspect ratio<select id="reportAspect">
+                <option value="wide">16:9 widescreen</option>
+                <option value="standard">4:3 standard</option>
+              </select></label
+            ><label
+              >Primary colour<input
+                id="reportPrimary"
+                type="color"
+                value="#102a43" /></label
+            ><label
+              >Accent colour<input
+                id="reportAccent"
+                type="color"
+                value="#b44d2e" /></label
+            ><label class="check"
+              ><input id="reportDetails" type="checkbox" checked /> Include
+              detailed capability slides</label
+            >
+          </div>
+          <div
+            id="reportPreview"
+            class="report-preview"
+            aria-label="Presentation style preview"
+          >
+            <small>MIGHTORA MATURITY ASSESSMENT</small
+            ><strong>Capability maturity</strong
+            ><span>Editable charts and evidence</span>
+          </div>
+          <p class="note">
+            Preview shows typography and colours. Word uses editable tables as
+            the alternative to an editable radar. Report fonts must be installed
+            on the recipient’s device.
+          </p>
+        </details>
+        <div class="offline-actions" data-online>
+          <a class="btn btn-primary" href="offline.html" download
+            >Download standalone HTML</a
+          ><a class="btn" href="maturity-offline.zip" download
+            >Download offline ZIP</a
+          >
+        </div>
+      </section>
+      <section id="guide" class="panel prose-panel">
+        <p class="eyebrow">06 / GET STARTED</p>
+        <h2>A clear path through your first assessment</h2>
+        <!-- GUIDE -->
+      </section>
+      <section id="privacy" class="panel prose-panel">
+        <p class="eyebrow">07 / YOUR DATA</p>
+        <h2>Privacy and network transparency</h2>
+        <p>
+          Assessment content, imports, scoring and document generation run
+          locally in this browser. This application has no backend, account,
+          analytics or advertising. Assessment data is never included in
+          application logs or requests.
+        </p>
+        <p>
+          Autosave uses IndexedDB, with browser storage as a fallback. Browser
+          storage is neither a secure nor synchronised backup. Other users of
+          this browser profile may access it, and clearing browsing data can
+          remove it. Export complete JSON backups regularly.
+        </p>
+        <p data-online>
+          The online edition downloads Mightora shared styles, components and
+          js-yaml from jsDelivr, official branding images, the local shared
+          footer snapshot and GitHub status badge images. These requests
+          disclose ordinary connection metadata to their hosts. Assessment
+          content is excluded. The offline edition embeds all required assets
+          and blocks outbound application connections.
+        </p>
+        <p>
+          Share links include an encoded, compressed assessment snapshot in the
+          URL fragment. Anyone possessing a link can inspect its contents. Links
+          are not encrypted, password protected or access controlled. The
+          summary option removes evidence, recommendations, risks, owners, notes
+          and historical snapshots. Review remaining titles, descriptions and
+          scores before sharing. Share URLs can remain in browser history or be
+          copied by extensions.
+        </p>
+        <h3>Inspect the network</h3>
+        <p id="networkStatus" role="status">Collecting resource information…</p>
+        <button id="refreshNetwork" class="btn">Refresh resource list</button>
+        <p>
+          Press F12 (or use your browser’s Developer Tools menu), choose
+          Network, enable Preserve log, reload, then edit and export an
+          assessment. The Resource Timing API above may omit blocked, cached,
+          navigation, extension or service-worker activity and can lose older
+          entries. It is not a security audit. Use Developer Tools for
+          independent verification.
+        </p>
+        <div data-edit>
+          <button id="resetProject" class="btn danger">
+            Reset active assessment</button
+          ><button id="clearLocal" class="btn danger">
+            Clear all local assessments
+          </button>
+        </div>
+      </section>
+    </main>
+    <dialog id="welcomeDialog" aria-labelledby="welcomeTitle">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow">WELCOME TO MIGHTORA</p>
+          <h2 id="welcomeTitle">Start with what you need</h2>
+        </div>
+        <button
+          class="close"
+          data-close="welcomeDialog"
+          aria-label="Close welcome"
+        >
+          ×
+        </button>
+      </div>
+      <div class="dialog-body">
+        <p>
+          Choose a starting point. Examples and templates are added as separate
+          assessments, keeping your existing work.
+        </p>
+        <button id="startBlank" class="btn btn-primary">
+          Start a blank assessment</button
+        ><button id="loadExample" class="btn">
+          Explore the complete Power Platform example</button
+        ><label>Assessment template<select id="templatePicker"></select></label
+        ><button id="useTemplate" class="btn">Create from template</button
+        ><button id="welcomeImport" class="btn">
+          Import a JSON or CSV project
+        </button>
+        <p class="note">
+          Generic example frameworks. No certification or proprietary framework
+          is implied.
+        </p>
+      </div>
+    </dialog>
+    <dialog id="detailsDialog" aria-labelledby="detailTitle">
+      <form id="capabilityForm">
+        <div class="dialog-head">
+          <h2 id="detailTitle">Capability details</h2>
+          <button
+            type="button"
+            class="close"
+            data-close="detailsDialog"
+            aria-label="Close capability details"
+          >
+            ×
+          </button>
+        </div>
+        <div class="dialog-body">
+          <div id="detailFields"></div>
+          <h3>Assessment criteria</h3>
+          <p class="note">
+            Criteria support the overall capability score. They do not
+            automatically calculate it.
+          </p>
+          <div id="criteriaEditor"></div>
+          <button type="button" id="addCriterion" class="btn" data-edit>
+            + Assessment criterion
+          </button>
+          <p id="detailError" role="alert"></p>
+        </div>
+        <div class="dialog-foot">
+          <button type="button" class="btn" data-close="detailsDialog">
+            Close</button
+          ><button
+            type="submit"
+            class="btn btn-primary"
+            id="detailSave"
+            data-edit
+          >
+            Save changes
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="shareDialog" aria-labelledby="shareTitle">
+      <div class="dialog-head">
+        <h2 id="shareTitle">Share a snapshot</h2>
+        <button
+          class="close"
+          data-close="shareDialog"
+          aria-label="Close sharing"
+        >
+          ×
+        </button>
+      </div>
+      <div class="dialog-body">
+        <p class="notice">
+          Anyone with the link can inspect the included assessment data. Links
+          are encoded, not encrypted, and have no access controls. Download JSON
+          for confidential or large assessments.
+        </p>
+        <label
+          >Sharing mode<select id="shareMode">
+            <option value="view">Read-only assessment</option>
+            <option value="summary">
+              Read-only summary without supporting evidence
+            </option>
+            <option value="embed">Embedded read-only visualisations</option>
+            <option value="edit">Editable copy (explicit selection)</option>
+          </select></label
+        ><button id="generateShare" class="btn btn-primary">
+          Generate link</button
+        ><label
+          >Share link<textarea
+            id="shareUrl"
+            rows="4"
+            readonly
+          ></textarea></label
+        ><label
+          >Embed code<textarea
+            id="embedCode"
+            rows="3"
+            readonly
+          ></textarea></label
+        ><button id="copyShare" class="btn">Copy link</button>
+        <p id="shareError" role="alert"></p>
+      </div>
+    </dialog>
+    <input
+      id="importFile"
+      type="file"
+      accept=".json,.csv,application/json,text/csv"
+      hidden
+    />
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <!-- BRAND_AUTHOR --><!-- QUALITY_BADGES --><!-- BRAND_FOOTER --><!-- APP_SCRIPT -->
+  </body>
+</html>

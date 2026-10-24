@@ -30,6 +30,7 @@ import {
   methodology,
 } from "./engine.ts";
 import { template, TEMPLATE_DEFINITIONS } from "./templates.ts";
+import { SAMPLE_OPTIONS, sampleAssessment } from "./examples.ts";
 import { loadWorkspace, saveWorkspace, clearWorkspace } from "./storage.ts";
 import {
   exportCsv,
@@ -655,7 +656,9 @@ function bind() {
   });
   $("newProject").onclick = () => dialog("welcomeDialog").showModal();
   $("startBlank").onclick = () => addProject(blank());
-  $("loadExample").onclick = () => addProject(template("power", true));
+  $("loadExample").onclick = () => addProject(sampleAssessment("power"));
+  $("useSample").onclick = () =>
+    addProject(sampleAssessment(select("samplePicker").value));
   $("useTemplate").onclick = () =>
     addProject(template(select("templatePicker").value));
   $("importButton").onclick = $("welcomeImport").onclick = () =>
@@ -1301,6 +1304,9 @@ function bind() {
   });
 }
 async function init() {
+  select("samplePicker").innerHTML = SAMPLE_OPTIONS.map(
+    (s) => `<option value="${html(s.key)}">${html(s.name)}</option>`,
+  ).join("");
   select("templatePicker").innerHTML = Object.entries(TEMPLATE_DEFINITIONS)
     .map(([id, d]) => option(id, d.name, "power"))
     .join("");

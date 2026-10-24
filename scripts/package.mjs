@@ -33,6 +33,7 @@ await writeFile(
 );
 await copyFile("dist/offline.html", "release/maturity-offline.html");
 await copyFile("dist/maturity-offline.zip", "release/maturity-offline.zip");
+await copyFile("dist/maturity-samples.zip", "release/maturity-samples.zip");
 for (const name of [
   "maturity-assessment-example.docx",
   "maturity-assessment-example.pptx",

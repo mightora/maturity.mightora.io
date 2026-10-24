@@ -103,3 +103,9 @@ Pages configuration and DNS steps are in [DEPLOYMENT.md](docs/DEPLOYMENT.md). Ho
 40 local assessments; 1,000 capabilities and 100 domains per assessment; 100 groups per domain; 100 criteria per capability; 30 snapshots; 2–10 maturity levels; 10 MB project imports; 16,000 encoded fragment characters. Oversized links use complete JSON files instead. Browser memory and Office applications may limit unusually large reports. Local workspace editing is intended for one active tab; simultaneous tabs do not merge changes.
 
 The standalone offline edition is intended for modern desktop browsers on Windows, macOS and Linux. It may not execute in mobile file previewers. Browser file storage behavior varies, so keep JSON backups. Accessibility targets WCAG 2.2 AA and includes automated and keyboard checks; this is not an independent certification.
+
+## Complete sample assessments
+
+Choose **New assessment → Complete sample assessment** to load one of six fictional scenarios: Power Platform governance, organisational growth readiness, Azure landing-zone readiness, safer DevOps releases, cybersecurity governance and enterprise architecture portfolio alignment. Samples contain current/target scores, capability-specific observations, risks, actions, owners, priorities, due dates and two historical snapshots. Each is added as a separate editable project. Framework templates remain unscored starting points.
+
+The cybersecurity sample includes an unassessed detection capability. Cloud, DevOps and cybersecurity demonstrate weighting; priorities reflect business context rather than numeric gap alone. Samples work in the offline edition too. Download **all sample projects (ZIP)** from the welcome dialog for complete JSON projects and capability CSV files; the ZIP is also published at `maturity-samples.zip`. The examples are fictional and do not claim certification or compliance.

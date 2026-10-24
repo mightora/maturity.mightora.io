@@ -158,13 +158,11 @@ test("JSON export is a complete backup and imports as a new project", async ({
   const a = JSON.parse(data);
   expect(a.schemaVersion).toBe(2);
   expect(a.snapshots).toHaveLength(2);
-  await page
-    .locator("#importFile")
-    .setInputFiles({
-      name: "copy.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(data),
-    });
+  await page.locator("#importFile").setInputFiles({
+    name: "copy.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(data),
+  });
   await expect(page.locator("#projectPicker option")).toHaveCount(2);
 });
 test("malformed structured data and file imports report errors without damaging current data", async ({
@@ -179,13 +177,11 @@ test("malformed structured data and file imports report errors without damaging 
   await expect(page.locator("#sourceErrors")).not.toBeEmpty();
   await page.locator("#editorMode").selectOption("visual");
   await expect(page.locator("#capabilityRows tr[data-id]")).toHaveCount(12);
-  await page
-    .locator("#importFile")
-    .setInputFiles({
-      name: "invalid.json",
-      mimeType: "application/json",
-      buffer: Buffer.from('{"__proto__":{}}'),
-    });
+  await page.locator("#importFile").setInputFiles({
+    name: "invalid.json",
+    mimeType: "application/json",
+    buffer: Buffer.from('{"__proto__":{}}'),
+  });
   await expect(page.locator("#toast")).toContainText("Unsafe object key");
 });
 test("bulk priority edits and selection are applied to the chosen rows", async ({
@@ -370,16 +366,18 @@ test("offline edition opens as file URL edits saves exports and makes no HTTP re
   });
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("file://" + resolve("dist/offline.html"));
+  await expect(page.locator("#samplePicker option")).toHaveCount(6);
+  await expect(
+    page.getByRole("link", { name: "Download all sample projects (ZIP)" }),
+  ).not.toBeVisible();
   await expect(
     page.getByText("Offline Edition – No Internet Connection Required", {
       exact: true,
     }),
   ).toBeVisible();
-  await page
-    .getByRole("button", {
-      name: "Explore the complete Power Platform example",
-    })
-    .click();
+  await page.locator("#samplePicker").selectOption("cloud");
+  await page.locator("#useSample").click();
+  await expect(page.locator("#capabilityRows tr[data-id]")).toHaveCount(9);
   await page.locator("#projectTitle").fill("Offline saved assessment");
   await page.locator("#projectTitle").press("Tab");
   await expect(page.locator("#saveState")).toContainText("Saved locally");
@@ -407,4 +405,46 @@ test("offline edition opens as file URL edits saves exports and makes no HTTP re
     .toBe(900);
   expect(requests).toEqual([]);
   expect(errors).toEqual([]);
+});
+
+test("complete sample catalogue loads each scenario as a separate editable assessment", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("#samplePicker option")).toHaveCount(6);
+  const keys = [
+    "power",
+    "general",
+    "cloud",
+    "devops",
+    "security",
+    "architecture",
+  ];
+  for (let i = 0; i < keys.length; i++) {
+    if (i) await page.locator("#newProject").click();
+    await page.locator("#samplePicker").selectOption(keys[i]);
+    await page.locator("#useSample").click();
+    await expect(page.locator("#capabilityRows tr[data-id]")).toHaveCount(
+      i === 0 ? 12 : 9,
+    );
+    await expect(page.locator("#projectPicker option")).toHaveCount(i + 1);
+    await expect(page.locator("#welcomeDialog")).not.toBeVisible();
+    for (const view of ["radar", "heatmap", "history"]) {
+      await page.locator(`[data-view=${view}]`).click();
+      await expect(page.locator("#chartArea svg")).toBeVisible();
+    }
+  }
+  await page
+    .locator("#capabilityRows tr[data-id]")
+    .first()
+    .locator("[data-field=current]")
+    .selectOption("5");
+  await expect(
+    page
+      .locator("#capabilityRows tr[data-id]")
+      .first()
+      .locator("[data-field=current]"),
+  ).toHaveValue("5");
+  await page.reload();
+  await expect(page.locator("#projectPicker option")).toHaveCount(6);
 });

@@ -449,3 +449,34 @@ test("complete sample catalogue loads each scenario as a separate editable asses
   await page.reload();
   await expect(page.locator("#projectPicker option")).toHaveCount(7);
 });
+
+test("HTTP-style startup populates dropdowns without crypto.randomUUID", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(globalThis.crypto, "randomUUID", {
+      value: undefined,
+      configurable: true,
+    });
+  });
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/");
+  await expect(page.locator("#samplePicker option")).toHaveCount(7);
+  await expect(page.locator("#templatePicker option")).toHaveCount(6);
+  await page.locator("#samplePicker").selectOption("power-security");
+  await page.locator("#useSample").click();
+  await expect(page.locator("#capabilityRows tr[data-id]")).toHaveCount(21);
+  await page.locator("#manualSave").click();
+  await expect(page.locator("#saveState")).toContainText("Saved locally");
+  await page.reload();
+  await expect(page.locator("#capabilityRows tr[data-id]")).toHaveCount(21);
+  await page.locator("#reportDetails").uncheck();
+  for (const format of ["json", "docx", "pptx"]) {
+    const pending = page.waitForEvent("download");
+    await page.locator(`[data-export=${format}]`).click();
+    const file = await pending;
+    expect((await readFile((await file.path())!)).length).toBeGreaterThan(1000);
+  }
+  expect(errors).toEqual([]);
+});

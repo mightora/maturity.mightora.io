@@ -295,3 +295,27 @@ test("earlier CSV column names migrate without losing stable IDs or evidence", (
   assert.equal(a.capabilities[0].recommendations, "Keep existing actions");
   assert.equal(a.capabilities[0].current, 2);
 });
+
+test("identifiers work when secure-context-only randomUUID is unavailable", () => {
+  const crypto = globalThis.crypto;
+  const original = Object.getOwnPropertyDescriptor(crypto, "randomUUID");
+  Object.defineProperty(crypto, "randomUUID", {
+    value: undefined,
+    configurable: true,
+  });
+  try {
+    const ids = Array.from({ length: 100 }, () => uid());
+    assert.equal(new Set(ids).size, 100);
+    assert(
+      ids.every((id) =>
+        /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(
+          id,
+        ),
+      ),
+    );
+    assert(validate(blank()).id);
+  } finally {
+    if (original) Object.defineProperty(crypto, "randomUUID", original);
+    else Reflect.deleteProperty(crypto, "randomUUID");
+  }
+});

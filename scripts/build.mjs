@@ -93,7 +93,7 @@ const online = sub({
   BRAND_AUTHOR: author(),
   QUALITY_BADGES: badges(),
   BRAND_FOOTER: `<mightora-footer local-yaml-url="footer.yaml">${bottom}</mightora-footer>`,
-  APP_SCRIPT: '<script src="app.js" defer></script>',
+  APP_SCRIPT: `<script src="app.js?v=${createHash("sha256").update(js).digest("hex").slice(0, 12)}" defer></script>`,
 });
 const offlineHeader = `<header class="offline-header"><a href="#workspace"><img src="data:image/png;base64,${assets.logo}" alt="Mightora" width="180" height="40"></a><strong>Maturity Assessment</strong><button class="btn offline-menu" id="offlineMenu" aria-expanded="false" aria-controls="offlineNav" aria-label="Open navigation menu">☰</button><nav id="offlineNav" class="offline-nav" aria-label="Main navigation">${links.map((l) => `<a href="${l.url}">${l.label}</a>`).join("")}</nav><span class="offline-label">Offline Edition – No Internet Connection Required</span></header>`;
 const footer = yaml.load(footerYaml.replace(/\t/g, "  "));

@@ -1,3 +1,4 @@
+import { deliveryMaturitySample } from "./delivery-example.ts";
 import { powerPlatformSecuritySample } from "./power-platform-security.ts";
 import { template } from "./templates.ts";
 import { clone, type Assessment, type Score } from "./model.ts";
@@ -426,6 +427,10 @@ export const SAMPLE_SCENARIOS: Record<string, Scenario> = {
 };
 export const SAMPLE_OPTIONS = [
   {
+    key: "delivery",
+    name: "Delivery maturity · outcomes, teams and assurance",
+  },
+  {
     key: "power-security",
     name: "Power Platform · security and data protection",
   },
@@ -436,6 +441,7 @@ export const SAMPLE_OPTIONS = [
   })),
 ];
 export function sampleAssessment(key: string): Assessment {
+  if (key === "delivery") return deliveryMaturitySample();
   if (key === "power-security") return powerPlatformSecuritySample();
   if (key === "power") return template("power", true);
   const scenario = SAMPLE_SCENARIOS[key];

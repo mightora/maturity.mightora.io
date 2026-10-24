@@ -182,13 +182,13 @@ samples.file(
   "README.md",
   `# Mightora Maturity Assessment samples
 
-Seven fictional assessments: Power Platform governance, Power Platform security, organisational capability, Cloud/Azure, DevOps, cybersecurity and enterprise architecture.
+Eight fictional assessments: delivery maturity, Power Platform governance, Power Platform security, organisational capability, Cloud/Azure, DevOps, cybersecurity and enterprise architecture.
 
 Open Mightora Maturity Assessment and choose Import a JSON or CSV project. Import a .maturity.json file for the complete assessment including hierarchy, evidence, weights and two historical snapshots. CSV is for capability-level tabular editing, not a complete project backup.
 
 Each scenario can also be selected from New assessment → Complete sample assessment, online or offline. Existing projects are retained. All samples are editable, can be exported into Word/PowerPoint and can be deleted independently.
 
-The cybersecurity example deliberately includes an unassessed capability. Power Platform security, Cloud, DevOps and cybersecurity use weighted scoring; other examples use equal weighting. Missing scores are excluded, not scored as zero. Business priority is independent of gap size.
+The cybersecurity example deliberately includes an unassessed capability. Delivery, Power Platform security, Cloud, DevOps and cybersecurity use weighted scoring; other examples use equal weighting. Missing scores are excluded, not scored as zero. Business priority is independent of gap size.
 
 All organisations, observations, scores and outcomes are fictional teaching material, not claims of compliance or certified assessments. Replace sample evidence before making real decisions.
 `,
@@ -199,6 +199,7 @@ await writeFile(
   await samples.generateAsync({ type: "nodebuffer", compression: "DEFLATE" }),
 );
 const manifest = {
+  sampleCount: SAMPLE_OPTIONS.length,
   version: "1.0.0",
   builtAt: new Date().toISOString(),
   appSha256: createHash("sha256").update(js).digest("hex"),

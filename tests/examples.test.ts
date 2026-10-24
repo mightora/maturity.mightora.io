@@ -6,8 +6,8 @@ import { SAMPLE_OPTIONS, sampleAssessment } from "../src/examples.ts";
 import { validate } from "../src/engine.ts";
 import { exportCsv, importCsv } from "../src/transfer.ts";
 
-test("seven complete scenarios validate with capability-specific evidence and independent history", () => {
-  assert.equal(SAMPLE_OPTIONS.length, 7);
+test("eight complete scenarios validate with capability-specific evidence and independent history", () => {
+  assert.equal(SAMPLE_OPTIONS.length, 8);
   for (const option of SAMPLE_OPTIONS) {
     const a = validate(sampleAssessment(option.key));
     assert(a.organisation && a.description && a.owner && a.reviewDate);
@@ -61,17 +61,17 @@ test("samples demonstrate weighting, missing scores and business priorities sepa
     "High",
   );
 });
-test("downloadable sample pack contains seven complete JSON projects, CSV and usage instructions", async () => {
+test("downloadable sample pack contains eight complete JSON projects, CSV and usage instructions", async () => {
   const zip = await JSZip.loadAsync(
     await readFile("dist/maturity-samples.zip"),
   );
   const projects = Object.keys(zip.files).filter((n) =>
     n.endsWith(".maturity.json"),
   );
-  assert.equal(projects.length, 7);
+  assert.equal(projects.length, 8);
   assert.equal(
     Object.keys(zip.files).filter((n) => n.endsWith(".csv")).length,
-    7,
+    8,
   );
   for (const path of projects) {
     const a = validate(JSON.parse(await zip.file(path)!.async("string")));
@@ -103,6 +103,44 @@ test("Power Platform security covers seven domains, weighted controls, evidence 
     a.snapshots.every((s) =>
       s.assessment.capabilities.every(
         (c) => !c.evidence.includes("Fictional October"),
+      ),
+    ),
+  );
+});
+
+test("delivery sample covers end-to-end delivery with weighted priorities, evidence and preserved history", () => {
+  const a = validate(sampleAssessment("delivery"));
+  assert.equal(a.domains.length, 6);
+  assert.equal(a.capabilities.length, 18);
+  assert.equal(a.weighted, true);
+  assert.equal(a.snapshots.length, 2);
+  assert(
+    a.capabilities.every(
+      (c) => c.evidence && c.risks && c.recommendations && c.owner && c.due,
+    ),
+  );
+  const benefits = a.capabilities.find(
+    (c) => c.name === "Benefits ownership and measurement",
+  )!;
+  assert.equal(benefits.current, null);
+  const reporting = a.capabilities.find(
+    (c) => c.name === "Delivery transparency and reporting",
+  )!;
+  const release = a.capabilities.find(
+    (c) => c.name === "Release readiness and contingency",
+  )!;
+  assert(
+    Number(reporting.target) - Number(reporting.current) >
+      Number(release.target) - Number(release.current),
+  );
+  assert.equal(reporting.priority, "Medium");
+  assert.equal(release.priority, "High");
+  assert(a.capabilities.some((c) => c.name.includes("supplier")));
+  assert(a.levels[3].guidance.includes("forecasts"));
+  assert(
+    a.snapshots.every((s) =>
+      s.assessment.capabilities.every(
+        (c) => !c.evidence.startsWith("Fictional October"),
       ),
     ),
   );

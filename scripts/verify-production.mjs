@@ -51,7 +51,11 @@ const html = await (await get("./")).text();
 if (!html.includes("Mightora Maturity Assessment"))
   throw new Error("Published application title missing");
 const manifest = await (await get("build-info.json")).json();
-const app = new Uint8Array(await (await get(`app.js?v=${manifest.appSha256.slice(0, 12)}`)).arrayBuffer());
+const app = new Uint8Array(
+  await (
+    await get(`app.js?v=${manifest.appSha256.slice(0, 12)}`)
+  ).arrayBuffer(),
+);
 if (createHash("sha256").update(app).digest("hex") !== manifest.appSha256)
   throw new Error("Published bundle does not match build manifest");
 const offline = await (await get("offline.html")).text();
@@ -83,7 +87,9 @@ try {
       const errors = [];
       page.on("pageerror", (error) => errors.push(error.message));
       await page.goto(url.href, { waitUntil: "domcontentloaded" });
-      await expect(page.locator("#samplePicker option")).toHaveCount(7);
+      await expect(page.locator("#samplePicker option")).toHaveCount(
+        manifest.sampleCount,
+      );
       await expect(page.locator("#templatePicker option")).toHaveCount(6);
       await page.locator("#samplePicker").selectOption("power-security");
       await page.locator("#useSample").click();

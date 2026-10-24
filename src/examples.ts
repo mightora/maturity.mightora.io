@@ -1,3 +1,4 @@
+import { powerPlatformSecuritySample } from "./power-platform-security.ts";
 import { template } from "./templates.ts";
 import { clone, type Assessment, type Score } from "./model.ts";
 import { snapshot } from "./engine.ts";
@@ -424,6 +425,10 @@ export const SAMPLE_SCENARIOS: Record<string, Scenario> = {
   },
 };
 export const SAMPLE_OPTIONS = [
+  {
+    key: "power-security",
+    name: "Power Platform · security and data protection",
+  },
   { key: "power", name: "Power Platform · governance and engineering" },
   ...Object.entries(SAMPLE_SCENARIOS).map(([key, s]) => ({
     key,
@@ -431,6 +436,7 @@ export const SAMPLE_OPTIONS = [
   })),
 ];
 export function sampleAssessment(key: string): Assessment {
+  if (key === "power-security") return powerPlatformSecuritySample();
   if (key === "power") return template("power", true);
   const scenario = SAMPLE_SCENARIOS[key];
   if (!scenario) throw new Error("Unknown sample assessment.");

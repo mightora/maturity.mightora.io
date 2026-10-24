@@ -366,7 +366,7 @@ test("offline edition opens as file URL edits saves exports and makes no HTTP re
   });
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("file://" + resolve("dist/offline.html"));
-  await expect(page.locator("#samplePicker option")).toHaveCount(6);
+  await expect(page.locator("#samplePicker option")).toHaveCount(7);
   await expect(
     page.getByRole("link", { name: "Download all sample projects (ZIP)" }),
   ).not.toBeVisible();
@@ -411,7 +411,7 @@ test("complete sample catalogue loads each scenario as a separate editable asses
   page,
 }) => {
   await page.goto("/");
-  await expect(page.locator("#samplePicker option")).toHaveCount(6);
+  await expect(page.locator("#samplePicker option")).toHaveCount(7);
   const keys = [
     "power",
     "general",
@@ -419,13 +419,14 @@ test("complete sample catalogue loads each scenario as a separate editable asses
     "devops",
     "security",
     "architecture",
+    "power-security",
   ];
   for (let i = 0; i < keys.length; i++) {
     if (i) await page.locator("#newProject").click();
     await page.locator("#samplePicker").selectOption(keys[i]);
     await page.locator("#useSample").click();
     await expect(page.locator("#capabilityRows tr[data-id]")).toHaveCount(
-      i === 0 ? 12 : 9,
+      keys[i] === "power-security" ? 21 : i === 0 ? 12 : 9,
     );
     await expect(page.locator("#projectPicker option")).toHaveCount(i + 1);
     await expect(page.locator("#welcomeDialog")).not.toBeVisible();
@@ -446,5 +447,5 @@ test("complete sample catalogue loads each scenario as a separate editable asses
       .locator("[data-field=current]"),
   ).toHaveValue("5");
   await page.reload();
-  await expect(page.locator("#projectPicker option")).toHaveCount(6);
+  await expect(page.locator("#projectPicker option")).toHaveCount(7);
 });

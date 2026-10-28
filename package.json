@@ -13,7 +13,7 @@
     "samples": "node --import tsx scripts/samples.ts"
   },
   "dependencies": {
-    "docx": "9.12.0",
+    "docx": "9.14.0",
     "js-yaml": "4.3.2",
     "jszip": "3.10.2",
     "pptxgenjs": "4.0.1"
